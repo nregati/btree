@@ -17,6 +17,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '8'
+      - name: Compile Java sources
+        run: |
+          mkdir -p target/classes
+          javac -d target/classes $(find src -name "*.java")    
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
         with:
